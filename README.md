@@ -39,11 +39,17 @@ in Git and updated automatically by GitHub Actions.
 
 ## Sources
 
-The default configuration in [`sources.json`](sources.json) contains 12 feeds:
+The default configuration in [`sources.json`](sources.json) contains 18 feeds:
 
 | Bot ID | Provider / Bot | Official Feed |
 | --- | --- | --- |
 | `googlebot` | Googlebot | [googlebot.json](https://developers.google.com/search/apis/ipranges/googlebot.json) |
+| `google-special-crawlers` | Google / Special-case crawlers (such as AdsBot) | [special-crawlers.json](https://developers.google.com/static/crawling/ipranges/special-crawlers.json) |
+| `google-user-triggered-fetchers` | Google / User-controlled fetchers | [user-triggered-fetchers.json](https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers.json) |
+| `google-user-triggered-fetchers-google` | Google / Google-controlled user-triggered fetchers | [user-triggered-fetchers-google.json](https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers-google.json) |
+| `google-user-triggered-agents` | Google / User-triggered agents (Google-Agent) | [user-triggered-agents.json](https://developers.google.com/static/crawling/ipranges/user-triggered-agents.json) |
+| `applebot` | Apple / Applebot | [applebot.json](https://search.developer.apple.com/applebot.json) |
+| `seznambot` | Seznam.cz / SeznamBot | [seznambot.json](https://search.seznam.cz/ipranges/seznambot.json) |
 | `bingbot` | Bingbot | [bingbot.json](https://www.bing.com/toolbox/bingbot.json) |
 | `claude` | Anthropic / Claude | [bots.json](https://claude.com/crawling/bots.json) |
 | `chatgpt-user` | OpenAI / ChatGPT-User | [chatgpt-user.json](https://openai.com/chatgpt-user.json) |
@@ -56,9 +62,19 @@ The default configuration in [`sources.json`](sources.json) contains 12 feeds:
 | `perplexitybot` | PerplexityBot | [perplexitybot.json](https://www.perplexity.ai/perplexitybot.json) |
 | `perplexity-user` | Perplexity-User | [perplexity-user.json](https://www.perplexity.ai/perplexity-user.json) |
 
-These URLs were discovered through [adver.tools/bot-ips](https://adver.tools/bot-ips/)
-and directly checked on September 8, 2026. The program does **not** scrape or
-download data from adver.tools at runtime; it fetches the configured feeds directly.
+The original 12 URLs were discovered through [adver.tools/bot-ips](https://adver.tools/bot-ips/).
+The additional feeds are documented by [Apple](https://support.apple.com/en-us/119829),
+[Seznam](https://o-seznam.cz/napoveda/vyhledavani/en/seznambot-crawler/), and
+[Google](https://developers.google.com/crawling/docs/crawlers-fetchers/verify-google-requests).
+All feeds were directly checked on September 8, 2026. The program does **not**
+scrape these documentation pages or download data from adver.tools at runtime;
+it fetches the configured feeds directly.
+
+Google's supplemental feeds remain separate from `googlebot`. User-triggered
+fetchers generally ignore `robots.txt`, and the user-controlled feed includes
+fetches from applications hosted on Google Cloud, not just Google's own products.
+Do not treat these ranges as an automatic Googlebot allowlist. Use per-bot JSON
+entries when selecting trusted categories; the combined TXT includes all feeds.
 
 Coverage is limited to those feeds. This is not an exhaustive directory of all
 crawlers, all Google services, or all infrastructure owned by each provider.

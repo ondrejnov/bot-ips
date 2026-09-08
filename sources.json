@@ -1,5 +1,11 @@
 {
   "googlebot": "https://developers.google.com/search/apis/ipranges/googlebot.json",
+  "google-special-crawlers": "https://developers.google.com/static/crawling/ipranges/special-crawlers.json",
+  "google-user-triggered-fetchers": "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers.json",
+  "google-user-triggered-fetchers-google": "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers-google.json",
+  "google-user-triggered-agents": "https://developers.google.com/static/crawling/ipranges/user-triggered-agents.json",
+  "applebot": "https://search.developer.apple.com/applebot.json",
+  "seznambot": "https://search.seznam.cz/ipranges/seznambot.json",
   "bingbot": "https://www.bing.com/toolbox/bingbot.json",
   "claude": "https://claude.com/crawling/bots.json",
   "chatgpt-user": "https://openai.com/chatgpt-user.json",
