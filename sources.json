@@ -1,0 +1,14 @@
+{
+  "googlebot": "https://developers.google.com/search/apis/ipranges/googlebot.json",
+  "bingbot": "https://www.bing.com/toolbox/bingbot.json",
+  "claude": "https://claude.com/crawling/bots.json",
+  "chatgpt-user": "https://openai.com/chatgpt-user.json",
+  "searchbot": "https://openai.com/searchbot.json",
+  "gptbot": "https://openai.com/gptbot.json",
+  "ahrefs": "https://api.ahrefs.com/v3/public/crawler-ip-ranges",
+  "duckduckbot": "https://duckduckgo.com/duckduckbot.json",
+  "duckassistbot": "https://duckduckgo.com/duckassistbot.json",
+  "ccbot": "https://index.commoncrawl.org/ccbot.json",
+  "perplexitybot": "https://www.perplexity.ai/perplexitybot.json",
+  "perplexity-user": "https://www.perplexity.ai/perplexity-user.json"
+}

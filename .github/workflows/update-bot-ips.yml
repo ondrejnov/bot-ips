@@ -1,0 +1,44 @@
+name: Update bot IP lists
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 4 * * *'
+  push:
+    paths:
+      - bot_ips.py
+      - sources.json
+      - tests/**
+      - .github/workflows/update-bot-ips.yml
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bot-ips-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run tests
+        run: python3 -m unittest discover -s tests -v
+      - name: Generate JSON and TXT
+        run: python3 bot_ips.py
+      - name: Upload lists
+        uses: actions/upload-artifact@v4
+        with:
+          name: bot-ips
+          path: |
+            data/bot-ips.json
+            data/bot-ips.txt
+          if-no-files-found: error
+          retention-days: 30
