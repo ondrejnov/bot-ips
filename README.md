@@ -29,8 +29,8 @@ Each successful run generates both files:
 | `data/bot-ips.json` | Per-bot ranges, source URLs, timestamps, and merged IPv4/IPv6 lists |
 | `data/bot-ips.txt` | All merged ranges, one CIDR per line, with no header |
 
-The output directory is created automatically. Generated data is excluded from
-Git through `.gitignore`.
+The output directory is created automatically. Both generated files are tracked
+in Git and updated automatically by GitHub Actions.
 
 > [!IMPORTANT]
 > Both formats contain **CIDR ranges**, not expanded individual IP addresses.
@@ -192,28 +192,27 @@ verification, and authenticated APIs do not have dedicated adapters.
 - Pushes changing `bot_ips.py`, `sources.json`, `tests/**`, or the workflow itself.
 
 The job uses Ubuntu and Python 3.12, runs the offline tests, fetches all feeds,
-and uploads both generated files as a single **`bot-ips`** artifact. Artifact
-retention is set to **30 days**, subject to repository or organization limits.
+and commits and pushes both generated files to the branch used by the run
+(the default branch for scheduled runs). No ZIP artifact is created.
 The job has a 10-minute timeout and serializes execution per Git ref.
 
-To retrieve the files, open a successful run under **Actions > Update bot IP
-lists** and download `bot-ips` from its **Artifacts** section. With an
-authenticated GitHub CLI, you can also download a specific run's artifact:
-
-```bash
-gh run download RUN_ID --repo OWNER/REPO --name bot-ips --dir ./downloaded
-```
-
-Replace `RUN_ID` and `OWNER/REPO` with the run and repository you want to use.
+The latest published files are available directly in the repository:
+[`data/bot-ips.json`](data/bot-ips.json) and
+[`data/bot-ips.txt`](data/bot-ips.txt). Use GitHub's **Raw** button to download
+either file without a ZIP, or pull the branch to retrieve both files locally.
 
 > [!NOTE]
-> The workflow publishes artifacts, not commits, releases, or a public download
-> endpoint. To enable scheduled runs, place the project and workflow in a GitHub
+> To enable scheduled runs, place the project and workflow in a GitHub
 > repository's default branch and enable Actions. GitHub schedules may be delayed;
 > they are not a precise delivery-time guarantee.
 
-The workflow requests only `contents: read` and requires no provider secrets.
-If tests or generation fail, the artifact upload step does not run.
+The workflow requests `contents: write` and uses the built-in `GITHUB_TOKEN`;
+no provider secrets are required. Repository policies and branch protection must
+allow the workflow to push commits. Pushes are never forced: if the branch
+advances during generation, the push fails safely and the workflow can be rerun.
+If tests or generation fail, no commit is published. Unchanged files produce no
+commit, but the JSON retrieval timestamp normally changes on each successful run.
+Data-only commits do not match the workflow's push path filters.
 
 ### Local Scheduling
 
@@ -249,7 +248,7 @@ an explicit permissions or distribution step.
 > The two renames are **not one transaction**. A disk error or process interruption
 > between them can leave JSON and TXT from different runs. Rerun generation if
 > publication fails. A consumer requiring a consistent pair should consume only
-> successfully completed snapshots, such as a successful workflow artifact.
+> successfully completed snapshots, such as both files from the same CI commit.
 
 | Exit Code | Meaning |
 | --- | --- |
@@ -304,7 +303,7 @@ This fetches the live feeds and writes both `/tmp/bot-ips-check.json` and
 | Empty list or invalid prefix error | Inspect the named provider's feed for a format change. Do not bypass validation just to publish a new snapshot |
 | Permission denied while writing | Check ownership and write permissions on the output directory |
 | Another service cannot read local outputs | Files are created with mode `0600`; arrange an explicit publishing step |
-| Missing or stale GitHub artifact | Check the workflow run status, Actions settings, default-branch workflow, and artifact retention |
+| Missing or stale repository data | Check the workflow run status, Actions write permissions, and branch protection; rerun if a concurrent push rejected the update |
 
 ## Project Layout
 
@@ -312,7 +311,7 @@ This fetches the live feeds and writes both `/tmp/bot-ips-check.json` and
 bot_ips.py                          CLI, fetching, validation, and output generation
 sources.json                        Official feed configuration
 tests/test_bot_ips.py               Offline unit tests
-.github/workflows/update-bot-ips.yml Scheduled generation and artifact upload
-data/bot-ips.json                   Generated structured snapshot (Git-ignored)
-data/bot-ips.txt                    Generated merged CIDR list (Git-ignored)
+.github/workflows/update-bot-ips.yml Scheduled generation, commit, and push
+data/bot-ips.json                   Generated structured snapshot (tracked in Git)
+data/bot-ips.txt                    Generated merged CIDR list (tracked in Git)
 ```

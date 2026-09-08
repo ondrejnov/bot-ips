@@ -12,7 +12,7 @@ on:
       - .github/workflows/update-bot-ips.yml
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: bot-ips-${{ github.ref }}
@@ -25,7 +25,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          persist-credentials: false
+          ref: ${{ github.ref }}
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -33,12 +33,15 @@ jobs:
         run: python3 -m unittest discover -s tests -v
       - name: Generate JSON and TXT
         run: python3 bot_ips.py
-      - name: Upload lists
-        uses: actions/upload-artifact@v4
-        with:
-          name: bot-ips
-          path: |
-            data/bot-ips.json
-            data/bot-ips.txt
-          if-no-files-found: error
-          retention-days: 30
+      - name: Commit and push lists
+        env:
+          TARGET_REF: ${{ github.ref }}
+        run: |
+          git add -- data/bot-ips.json data/bot-ips.txt
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git -c user.name='github-actions[bot]' \
+            -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+            commit -m "Update bot IP lists"
+          git push origin "HEAD:${TARGET_REF}"

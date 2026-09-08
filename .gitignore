@@ -1,4 +1,6 @@
 __pycache__/
 *.pyc
-data/
+data/*
+!data/bot-ips.json
+!data/bot-ips.txt
 .venv/
