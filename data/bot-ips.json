@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "fetched_at": "2026-09-08T12:02:32.541618+00:00",
+  "fetched_at": "2026-09-09T08:57:52.061663+00:00",
   "bots": {
     "ahrefs": {
       "url": "https://api.ahrefs.com/v3/public/crawler-ip-ranges",
@@ -175,7 +175,7 @@
     },
     "chatgpt-user": {
       "url": "https://openai.com/chatgpt-user.json",
-      "creation_time": "2026-09-04T18:03:29.248484",
+      "creation_time": "2026-09-09T00:04:22.283240",
       "prefixes": [
         "4.151.71.176/28",
         "4.151.119.48/28",
@@ -224,6 +224,7 @@
         "20.63.180.96/28",
         "20.63.221.64/28",
         "20.83.243.176/28",
+        "20.98.18.80/28",
         "20.102.212.144/28",
         "20.113.211.112/28",
         "20.113.225.112/28",
@@ -1404,7 +1405,7 @@
     },
     "google-special-crawlers": {
       "url": "https://developers.google.com/static/crawling/ipranges/special-crawlers.json",
-      "creation_time": "2026-09-07T14:45:38.000000",
+      "creation_time": "2026-09-08T14:45:48.000000",
       "prefixes": [
         "66.249.87.0/27",
         "66.249.87.32/27",
@@ -1682,7 +1683,7 @@
     },
     "google-user-triggered-agents": {
       "url": "https://developers.google.com/static/crawling/ipranges/user-triggered-agents.json",
-      "creation_time": "2026-09-07T14:45:51.000000",
+      "creation_time": "2026-09-08T14:45:41.000000",
       "prefixes": [
         "74.125.232.0/28",
         "74.125.232.16/28",
@@ -1708,7 +1709,7 @@
     },
     "google-user-triggered-fetchers": {
       "url": "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers.json",
-      "creation_time": "2026-09-07T14:45:46.000000",
+      "creation_time": "2026-09-08T14:45:43.000000",
       "prefixes": [
         "34.64.6.0/27",
         "34.64.6.32/27",
@@ -2772,7 +2773,7 @@
     },
     "google-user-triggered-fetchers-google": {
       "url": "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers-google.json",
-      "creation_time": "2026-09-07T14:45:46.000000",
+      "creation_time": "2026-09-08T14:45:44.000000",
       "prefixes": [
         "64.233.172.0/27",
         "64.233.172.32/27",
@@ -3274,7 +3275,7 @@
     },
     "googlebot": {
       "url": "https://developers.google.com/search/apis/ipranges/googlebot.json",
-      "creation_time": "2026-09-07T14:45:45.000000",
+      "creation_time": "2026-09-08T14:45:40.000000",
       "prefixes": [
         "34.22.85.0/27",
         "34.64.82.64/28",
@@ -4028,6 +4029,7 @@
     "20.88.168.65/32",
     "20.93.28.24/32",
     "20.93.49.96/32",
+    "20.98.18.80/28",
     "20.99.154.113/32",
     "20.99.255.235/32",
     "20.100.136.36/32",
