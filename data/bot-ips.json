@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "fetched_at": "2026-09-24T09:18:19.741004+00:00",
+  "fetched_at": "2026-09-25T09:36:16.903196+00:00",
   "bots": {
     "ahrefs": {
       "url": "https://api.ahrefs.com/v3/public/crawler-ip-ranges",
@@ -1417,7 +1417,7 @@
     },
     "google-special-crawlers": {
       "url": "https://developers.google.com/static/crawling/ipranges/special-crawlers.json",
-      "creation_time": "2026-09-23T14:46:35.000000",
+      "creation_time": "2026-09-24T14:46:14.000000",
       "prefixes": [
         "66.249.87.0/27",
         "66.249.87.32/27",
@@ -1695,7 +1695,7 @@
     },
     "google-user-triggered-agents": {
       "url": "https://developers.google.com/static/crawling/ipranges/user-triggered-agents.json",
-      "creation_time": "2026-09-23T14:46:37.000000",
+      "creation_time": "2026-09-24T14:46:13.000000",
       "prefixes": [
         "74.125.232.0/28",
         "74.125.232.16/28",
@@ -1721,7 +1721,7 @@
     },
     "google-user-triggered-fetchers": {
       "url": "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers.json",
-      "creation_time": "2026-09-23T14:46:17.000000",
+      "creation_time": "2026-09-24T14:46:12.000000",
       "prefixes": [
         "34.64.6.0/27",
         "34.64.6.32/27",
@@ -2785,7 +2785,7 @@
     },
     "google-user-triggered-fetchers-google": {
       "url": "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers-google.json",
-      "creation_time": "2026-09-23T14:46:35.000000",
+      "creation_time": "2026-09-24T14:46:15.000000",
       "prefixes": [
         "64.233.172.0/27",
         "64.233.172.32/27",
@@ -3287,7 +3287,7 @@
     },
     "googlebot": {
       "url": "https://developers.google.com/search/apis/ipranges/googlebot.json",
-      "creation_time": "2026-09-23T14:46:32.000000",
+      "creation_time": "2026-09-24T14:46:10.000000",
       "prefixes": [
         "34.22.85.0/27",
         "34.64.82.64/28",
