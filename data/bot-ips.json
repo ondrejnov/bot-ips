@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "fetched_at": "2026-10-11T10:48:55.082200+00:00",
+  "fetched_at": "2026-10-12T11:57:42.880438+00:00",
   "bots": {
     "ahrefs": {
       "url": "https://api.ahrefs.com/v3/public/crawler-ip-ranges",
