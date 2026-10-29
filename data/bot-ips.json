@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "fetched_at": "2026-10-28T10:33:56.805785+00:00",
+  "fetched_at": "2026-10-29T10:52:58.127339+00:00",
   "bots": {
     "ahrefs": {
       "url": "https://api.ahrefs.com/v3/public/crawler-ip-ranges",
@@ -1411,7 +1411,7 @@
     },
     "google-special-crawlers": {
       "url": "https://developers.google.com/static/crawling/ipranges/special-crawlers.json",
-      "creation_time": "2026-10-27T15:46:11.000000",
+      "creation_time": "2026-10-28T15:45:59.000000",
       "prefixes": [
         "66.249.87.0/27",
         "66.249.87.32/27",
@@ -1689,7 +1689,7 @@
     },
     "google-user-triggered-agents": {
       "url": "https://developers.google.com/static/crawling/ipranges/user-triggered-agents.json",
-      "creation_time": "2026-10-27T15:46:11.000000",
+      "creation_time": "2026-10-28T15:45:56.000000",
       "prefixes": [
         "74.125.232.0/28",
         "74.125.232.16/28",
@@ -1715,7 +1715,7 @@
     },
     "google-user-triggered-fetchers": {
       "url": "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers.json",
-      "creation_time": "2026-10-27T15:46:19.000000",
+      "creation_time": "2026-10-28T15:46:01.000000",
       "prefixes": [
         "34.64.6.0/27",
         "34.64.6.32/27",
@@ -2789,7 +2789,7 @@
     },
     "google-user-triggered-fetchers-google": {
       "url": "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers-google.json",
-      "creation_time": "2026-10-27T15:46:42.000000",
+      "creation_time": "2026-10-28T15:46:00.000000",
       "prefixes": [
         "64.233.172.0/27",
         "64.233.172.32/27",
@@ -3299,7 +3299,7 @@
     },
     "googlebot": {
       "url": "https://developers.google.com/search/apis/ipranges/googlebot.json",
-      "creation_time": "2026-10-27T15:46:11.000000",
+      "creation_time": "2026-10-28T15:46:02.000000",
       "prefixes": [
         "34.22.85.0/27",
         "34.64.82.64/28",
@@ -3646,24 +3646,35 @@
     },
     "perplexity-user": {
       "url": "https://www.perplexity.ai/perplexity-user.json",
-      "creation_time": "2025-10-17T10:17:00.000000",
+      "creation_time": "2026-10-28T16:48:51.000000",
       "prefixes": [
-        "18.97.21.0/30",
-        "18.97.43.80/29",
+        "18.97.43.80/32",
+        "18.97.43.81/32",
+        "18.97.43.82/32",
+        "18.97.43.83/32",
+        "18.97.43.84/32",
+        "18.97.43.85/32",
+        "18.97.43.86/32",
+        "18.97.43.87/32",
         "34.193.163.52/32",
         "44.208.221.197/32"
       ]
     },
     "perplexitybot": {
       "url": "https://www.perplexity.ai/perplexitybot.json",
-      "creation_time": "2025-02-07T16:56:00.000000",
+      "creation_time": "2026-10-28T16:48:51.000000",
       "prefixes": [
-        "3.211.124.183/32",
         "3.222.232.239/32",
         "3.224.62.45/32",
-        "3.231.139.107/32",
-        "18.97.1.228/30",
-        "18.97.9.96/29",
+        "18.97.1.228/32",
+        "18.97.9.96/32",
+        "18.97.9.97/32",
+        "18.97.9.98/32",
+        "18.97.9.99/32",
+        "18.97.9.100/32",
+        "18.97.9.101/32",
+        "18.97.9.102/32",
+        "18.97.9.103/32",
         "18.210.92.235/32",
         "107.20.236.150/32"
       ]
@@ -3814,10 +3825,8 @@
   },
   "ipv4": [
     "3.41.188.32/29",
-    "3.211.124.183/32",
     "3.222.232.239/32",
     "3.224.62.45/32",
-    "3.231.139.107/32",
     "4.144.148.23/32",
     "4.144.182.50/32",
     "4.144.227.142/32",
@@ -3923,12 +3932,11 @@
     "17.241.193.160/27",
     "17.241.200.160/27",
     "17.241.208.160/27",
-    "18.97.1.228/30",
+    "18.97.1.228/32",
     "18.97.9.96/29",
     "18.97.9.168/29",
     "18.97.14.80/29",
     "18.97.14.88/30",
-    "18.97.21.0/30",
     "18.97.43.80/29",
     "18.210.92.235/32",
     "20.3.1.178/32",
